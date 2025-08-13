@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicators = [];
 
     // CONFIGURACIÓN
-    const currentStatusText = "Jugando Actualmente";
+    const currentStatusText = "Actualmente";
     const totalSlides = slides.length;
 
     let startIndex = parseInt(sliderContainer.dataset.startSlide) || 0;
