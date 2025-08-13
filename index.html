@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Planing de Juegos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,19 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <!--
-        ¡AQUÍ ESTÁ LA MAGIA!
-        data-start-slide="1" indica que queremos empezar en el SEGUNDO slide.
-        Recuerda: 0 = primer slide, 1 = segundo, 2 = tercero, etc.
-        CAMBIA ESTE NÚMERO PARA ELEGIR EL SLIDE INICIAL.
-    -->
     <div class="slider-container" data-start-slide="0">
         
         <div class="slider">
 
             <!-- SLIDE 0: JUEGO COMPLETADO -->
-
             <div class="slide" style="background-image: url('Resources/RDR2.jpg');">
                 <div class="slide-content">
                     <h1>Red Dead Redemption 2</h1>
@@ -37,11 +29,10 @@
                 </div>
             </div>
 
-            <!-- SLIDE 1: JUEGO ACTUAL (Este será el inicial ahora) -->
+            <!-- SLIDE 1: JUEGO ACTUAL -->
             <div class="slide" style="background-image: url('Resources/Metal-Gear-Solid-Delta-Snake-Eater.webp');">
                 <div class="slide-content">
                     <h1>Metal Gear Solid Delta Snake Eater</h1>
-                    <!-- El texto de "Jugando Actualmente" ya no está aquí, JavaScript lo añadirá -->
                     <p>¡26 Agosto 2025!</p>
                 </div>
             </div>
@@ -65,8 +56,17 @@
         </div>
 
         <!-- Botones de navegación -->
-        <button id="prevBtn" class="nav-btn">‹</button>
-        <button id="nextBtn" class="nav-btn">›</button>
+        <button id="prevBtn" class="nav-btn" aria-label="Slide anterior">‹</button>
+        <button id="nextBtn" class="nav-btn" aria-label="Siguiente slide">›</button>
+
+        <!-- Indicadores de slide (opcional) -->
+        <div class="slide-indicators">
+            <div class="indicator active" data-slide="0"></div>
+            <div class="indicator" data-slide="1"></div>
+            <div class="indicator" data-slide="2"></div>
+            <div class="indicator" data-slide="3"></div>
+            <div class="indicator" data-slide="4"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
