@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planing de Juegos</title>
+    <!-- Enlace a nuestro archivo de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fuente de Google Fonts para un look más "gamer" -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="slider-container">
+        <!-- El slider que se moverá -->
+        <div class="slider">
+
+            <!-- SLIDE 1: JUEGO ACTUAL -->
+            <div class="slide" style="background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202108/0410/5sU5b7R4C_gaJz6p9G223e7s.jpg');">
+                <div class="slide-content">
+                    <h1>Elden Ring</h1>
+                    <p>Jugando Actualmente</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 2: PRÓXIMO JUEGO -->
+            <div class="slide" style="background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/2343d54483751759654eda30832f2603f6eb68f233488b3b.jpg');">
+                <div class="slide-content">
+                    <h1>Baldur's Gate 3</h1>
+                    <p>Próximamente: 25/12/2024</p>
+                </div>
+            </div>
+
+            <!-- SLIDE 3: JUEGO COMPLETADO -->
+            <div class="slide" style="background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202207/1211/339714316e0b7631f486e923984coWRC.jpg');">
+                <div class="slide-content">
+                    <h1>God of War: Ragnarök</h1>
+                    <p>Completado: 10/11/2024</p>
+                </div>
+            </div>
+            
+            <!-- SLIDE 4: JUEGO PENDIENTE -->
+            <div class="slide" style="background-image: url('https://cdn1.epicgames.com/offer/77f2b98da1c442468664879f906ea53a/EGS_Hades_SupergiantGames_S1_2560x1440-3b7858338c642337d4e5f54abbb5e709');">
+                <div class="slide-content">
+                    <h1>Hades</h1>
+                    <p>Pendiente</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botones de navegación -->
+        <button id="prevBtn" class="nav-btn">‹</button>
+        <button id="nextBtn" class="nav-btn">›</button>
+    </div>
+
+    <!-- Enlace a nuestro archivo de JavaScript (siempre al final del body) -->
+    <script src="script.js"></script>
+</body>
+</html>
