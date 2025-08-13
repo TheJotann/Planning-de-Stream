@@ -108,7 +108,6 @@ body {
     pointer-events: none;
 }
 
-
 /* 
 ================================================================
 --- ESTILOS PARA MÓVILES (Responsive Design) ---
@@ -116,10 +115,23 @@ Estos estilos SOLO se aplicarán si la pantalla tiene 768px de ancho o menos.
 ================================================================
 */
 @media (max-width: 768px) {
-    /* Hacemos que el slider ocupe casi todo el ancho en móviles */
+    /* Hacemos que el cuerpo no pueda hacer scroll en móvil */
+    body {
+        overflow: hidden;
+    }
+
+    /* El slider ocupa TODA la pantalla */
     .slider-container {
-        width: 95vw;
-        border-radius: 10px; /* Bordes un poco menos redondeados */
+        width: 100%;
+        height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+        max-width: none; /* Quitamos el límite de ancho */
+        border-radius: 0; /* Quitamos los bordes redondeados */
+        box-shadow: none; /* Quitamos la sombra */
+    }
+
+    /* Aseguramos que el contenedor interno también ocupe todo */
+    .slider {
+        height: 100%;
     }
 
     /* Reducimos el tamaño del título del juego */
@@ -132,15 +144,18 @@ Estos estilos SOLO se aplicarán si la pantalla tiene 768px de ancho o menos.
         font-size: 1rem;
     }
     
-    /* Reducimos el padding horizontal del texto para que no se pegue a los bordes */
+    /* Aumentamos el padding inferior para que no se pegue al borde del móvil */
     .slide-content {
-        padding: 15px 20px;
+        padding: 20px 20px 50px 20px;
     }
 
-    /* Hacemos los botones de navegación mucho más pequeños y sutiles */
+    /* Hacemos los botones de navegación más sutiles en pantallas táctiles */
     .nav-btn {
-        font-size: 2rem;
-        height: 60px;
-        padding: 0 10px;
+        background-color: rgba(0, 0, 0, 0.3);
+        height: 100%; /* Ocupan todo el alto para un área de toque más grande */
+        width: 50px;
+        top: 0;
+        transform: none; /* Reseteamos la transformación vertical */
+        border-radius: 0; /* Quitamos bordes redondeados */
     }
 }
