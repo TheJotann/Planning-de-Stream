@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head >
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Planing de Juegos</title>
@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="slider-container" data-start-slide="6">                  
-        <div class="slider" style="background-image: url('Resources/tu-imagen-de-fondo.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">              
+    <div class="slider-container" data-start-slide="8">
+        <div class="slider">              
             <!-- SLIDE 0: JUEGO COMPLETADO -->             
             <div class="slide" style="background-image: url('Resources/BLWukong.jpg');">                 
                 <div class="slide-content">                     
@@ -86,7 +86,8 @@
 
             <!-- SLIDE 9: JUEGO COMPLETADO -->
             <div class="slide" style="background-image: url('Resources/Spiderman2.jpg');">                 
-                <div class="slide-content">                     
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(128, 128, 128, 0.7); filter: grayscale(0.8);"></div>                
+                <div class="slide-content" style="position: relative; z-index: 2;">                       
                     <h1>Marvel Spider-Man 2</h1>                     
                     <p></p>                 
                 </div>             
@@ -101,6 +102,9 @@
                 </div>             
             </div>                        
         </div>
+        <!-- Botones de navegación -->
+        <button id="prevBtn" class="nav-btn" aria-label="Slide anterior">‹</button>
+        <button id="nextBtn" class="nav-btn" aria-label="Siguiente slide">›</button>
     </div>
 
     <script src="script.js"></script>
