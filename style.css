@@ -2,42 +2,41 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #121212; /* Un fondo oscuro */
+    background-color: #121212;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    height: 100vh;
     color: white;
 }
 
 /* El contenedor principal que será la "ventana" del slider */
 .slider-container {
-    width: 80vw; /* Ocupará el 80% del ANCHO de la ventana del navegador */
-    max-width: 1400px; /* Le ponemos un tope para pantallas ultra-anchas */
-    aspect-ratio: 16 / 9; /* Mantiene la proporción 16:9 automáticamente */
-    position: relative; /* Necesario para posicionar los botones dentro */
-    overflow: hidden; /* ¡La magia! Oculta los slides que no se ven */
+    width: 80vw;
+    max-width: 1400px;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 /* El contenedor de todos los slides, que se moverá */
 .slider {
-    display: flex; /* Pone los slides uno al lado del otro */
+    display: flex;
     height: 100%;
-    /* Transición suave para el efecto de deslizamiento */
     transition: transform 0.5s ease-in-out;
 }
 
 /* Estilo para cada slide individual */
 .slide {
-    min-width: 100%; /* Cada slide ocupa el 100% del contenedor */
+    min-width: 100%;
     height: 100%;
-    background-size: cover; /* La imagen de fondo cubre todo el slide */
-    background-position: center; /* Centra la imagen de fondo */
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alinea el contenido en la parte inferior */
+    align-items: flex-end;
     position: relative;
 }
 
@@ -56,7 +55,7 @@ body {
 .slide-content {
     text-align: center;
     padding: 20px 40px;
-    z-index: 2; /* Para que esté por encima de la capa oscura */
+    z-index: 2;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
 
@@ -84,7 +83,7 @@ body {
     cursor: pointer;
     z-index: 10;
     height: 100px;
-    transition: opacity 0.3s ease, background-color 0.3s ease; /* Transición suave */
+    transition: opacity 0.3s ease, background-color 0.3s ease;
 }
 
 .nav-btn:hover {
@@ -106,5 +105,42 @@ body {
 /* Clase para ocultar los botones */
 .is-hidden {
     opacity: 0;
-    pointer-events: none; /* Impide hacer clic en el botón invisible */
+    pointer-events: none;
+}
+
+
+/* 
+================================================================
+--- ESTILOS PARA MÓVILES (Responsive Design) ---
+Estos estilos SOLO se aplicarán si la pantalla tiene 768px de ancho o menos.
+================================================================
+*/
+@media (max-width: 768px) {
+    /* Hacemos que el slider ocupe casi todo el ancho en móviles */
+    .slider-container {
+        width: 95vw;
+        border-radius: 10px; /* Bordes un poco menos redondeados */
+    }
+
+    /* Reducimos el tamaño del título del juego */
+    .slide-content h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Reducimos el tamaño del texto secundario */
+    .slide-content p {
+        font-size: 1rem;
+    }
+    
+    /* Reducimos el padding horizontal del texto para que no se pegue a los bordes */
+    .slide-content {
+        padding: 15px 20px;
+    }
+
+    /* Hacemos los botones de navegación mucho más pequeños y sutiles */
+    .nav-btn {
+        font-size: 2rem;
+        height: 60px;
+        padding: 0 10px;
+    }
 }
