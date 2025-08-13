@@ -4,24 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planing de Juegos</title>
-    <!-- Enlace a nuestro archivo de estilos CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Fuente de Google Fonts para un look más "gamer" -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="slider-container">
-        <!-- El slider que se moverá -->
+    <!--
+        ¡AQUÍ ESTÁ LA MAGIA!
+        data-start-slide="1" indica que queremos empezar en el SEGUNDO slide.
+        Recuerda: 0 = primer slide, 1 = segundo, 2 = tercero, etc.
+        CAMBIA ESTE NÚMERO PARA ELEGIR EL SLIDE INICIAL.
+    -->
+    <div class="slider-container" data-start-slide="0">
+        
         <div class="slider">
 
-            <!-- SLIDE 1: JUEGO ACTUAL -->
-            <div class="slide" style="background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202108/0410/5sU5b7R4C_gaJz6p9G223e7s.jpg');">
+            <!-- SLIDE 0: JUEGO COMPLETADO -->
+
+            <div class="slide" style="background-image: url('Resources/RDR2.jpg');">
                 <div class="slide-content">
-                    <h1>Elden Ring</h1>
-                    <p>Jugando Actualmente</p>
+                    <h1>Red Dead Redemption 2</h1>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('Resources/Spiderman2.jpg');">
+                <div class="slide-content">
+                    <h1>Marvel Spider-Man 2</h1>
+                    <p></p>
+                </div>
+            </div>
+
+            <!-- SLIDE 1: JUEGO ACTUAL (Este será el inicial ahora) -->
+            <div class="slide" style="background-image: url('Resources/Metal-Gear-Solid-Delta-Snake-Eater.webp');">
+                <div class="slide-content">
+                    <h1>Metal Gear Solid Delta Snake Eater</h1>
+                    <!-- El texto de "Jugando Actualmente" ya no está aquí, JavaScript lo añadirá -->
+                    <p>¡26 Agosto 2025!</p>
                 </div>
             </div>
 
@@ -32,16 +53,8 @@
                     <p>Próximamente: 25/12/2024</p>
                 </div>
             </div>
-
-            <!-- SLIDE 3: JUEGO COMPLETADO -->
-            <div class="slide" style="background-image: url('https://image.api.playstation.com/vulcan/ap/rnd/202207/1211/339714316e0b7631f486e923984coWRC.jpg');">
-                <div class="slide-content">
-                    <h1>God of War: Ragnarök</h1>
-                    <p>Completado: 10/11/2024</p>
-                </div>
-            </div>
             
-            <!-- SLIDE 4: JUEGO PENDIENTE -->
+            <!-- SLIDE 3: JUEGO PENDIENTE -->
             <div class="slide" style="background-image: url('https://cdn1.epicgames.com/offer/77f2b98da1c442468664879f906ea53a/EGS_Hades_SupergiantGames_S1_2560x1440-3b7858338c642337d4e5f54abbb5e709');">
                 <div class="slide-content">
                     <h1>Hades</h1>
@@ -56,7 +69,6 @@
         <button id="nextBtn" class="nav-btn">›</button>
     </div>
 
-    <!-- Enlace a nuestro archivo de JavaScript (siempre al final del body) -->
     <script src="script.js"></script>
 </body>
 </html>

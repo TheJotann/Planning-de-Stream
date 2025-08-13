@@ -1,47 +1,86 @@
-// Espera a que todo el contenido de la página se cargue
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Seleccionamos los elementos que necesitamos del HTML
+    // Seleccionamos los elementos del DOM
+    const sliderContainer = document.querySelector('.slider-container');
     const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
 
-    // Variable para saber en qué slide estamos. Empezamos en el primero (índice 0)
-    let currentIndex = 0;
+    // CONFIGURACIÓN
+    const currentStatusText = "Actualmente"; // Puedes cambiar este texto
     const totalSlides = slides.length;
 
-    // Función para mostrar un slide específico
+    // Leemos el slide inicial desde el atributo data-start-slide en el HTML
+    let startIndex = parseInt(sliderContainer.dataset.startSlide) || 0;
+    
+    // Nos aseguramos de que el índice inicial sea válido
+    if (startIndex < 0 || startIndex >= totalSlides) {
+        startIndex = 0;
+    }
+    
+    let currentIndex = startIndex;
+
+    // Función para actualizar el estado de los botones (visible/oculto)
+    function updateButtonStates() {
+        // Oculta el botón 'prev' si estamos en el primer slide
+        prevBtn.classList.toggle('is-hidden', currentIndex === 0);
+        // Oculta el botón 'next' si estamos en el último slide
+        nextBtn.classList.toggle('is-hidden', currentIndex === totalSlides - 1);
+    }
+
+    // Función para añadir la etiqueta de estado dinámico al slide activo
+    function setActiveStatus(index) {
+        // Limpiamos cualquier etiqueta dinámica anterior
+        slides.forEach(slide => {
+            const p = slide.querySelector('.slide-content p');
+            if (p.dataset.status === 'dynamic') {
+                p.textContent = ''; // Limpiamos el texto
+                delete p.dataset.status; // Quitamos la marca
+            }
+        });
+
+        // Añadimos la nueva etiqueta al slide correcto
+        const activeSlide = slides[index];
+        if (activeSlide) {
+            const pElement = activeSlide.querySelector('.slide-content p');
+            // Si el párrafo ya tiene texto, lo respetamos y añadimos el nuevo delante
+            if (pElement.textContent.trim() !== '') {
+                pElement.textContent = `${currentStatusText} | ${pElement.textContent}`;
+            } else {
+                pElement.textContent = currentStatusText;
+            }
+            // Marcamos el párrafo como dinámico para poder limpiarlo después
+            pElement.dataset.status = 'dynamic';
+        }
+    }
+
+    // Función para mover el slider a la posición correcta
     function showSlide(index) {
-        // Mueve el contenedor '.slider' hacia la izquierda
-        // Multiplicamos el índice por 100 para obtener el porcentaje de desplazamiento
         slider.style.transform = `translateX(-${index * 100}%)`;
     }
 
-    // Evento para el botón "Siguiente"
+    // Evento para el botón 'siguiente'
     nextBtn.addEventListener('click', () => {
-        // Aumentamos el índice
-        currentIndex++;
-        // Si llegamos al final, volvemos al principio
-        if (currentIndex >= totalSlides) {
-            currentIndex = 0;
+        if (currentIndex < totalSlides - 1) {
+            currentIndex++;
+            showSlide(currentIndex);
+            updateButtonStates();
         }
-        // Mostramos el nuevo slide
-        showSlide(currentIndex);
     });
 
-    // Evento para el botón "Anterior"
+    // Evento para el botón 'anterior'
     prevBtn.addEventListener('click', () => {
-        // Disminuimos el índice
-        currentIndex--;
-        // Si estamos en el primero y vamos hacia atrás, vamos al último
-        if (currentIndex < 0) {
-            currentIndex = totalSlides - 1;
+        if (currentIndex > 0) {
+            currentIndex--;
+            showSlide(currentIndex);
+            updateButtonStates();
         }
-        // Mostramos el nuevo slide
-        showSlide(currentIndex);
     });
 
-    // Mostramos el primer slide al cargar la página
-    showSlide(currentIndex);
+    // --- INICIALIZACIÓN ---
+    // Esto se ejecuta una sola vez cuando la página carga
+    showSlide(currentIndex);        // Muestra el slide inicial
+    setActiveStatus(currentIndex);  // Pone la etiqueta de "Jugando Actualmente"
+    updateButtonStates();           // Configura el estado inicial de los botones
 });

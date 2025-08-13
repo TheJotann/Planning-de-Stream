@@ -12,9 +12,9 @@ body {
 
 /* El contenedor principal que será la "ventana" del slider */
 .slider-container {
-    width: 90%;
-    max-width: 800px; /* Ancho máximo para pantallas grandes */
-    height: 450px;
+    width: 80vw; /* Ocupará el 80% del ANCHO de la ventana del navegador */
+    max-width: 1400px; /* Le ponemos un tope para pantallas ultra-anchas */
+    aspect-ratio: 16 / 9; /* Mantiene la proporción 16:9 automáticamente */
     position: relative; /* Necesario para posicionar los botones dentro */
     overflow: hidden; /* ¡La magia! Oculta los slides que no se ven */
     border-radius: 15px;
@@ -40,6 +40,7 @@ body {
     align-items: flex-end; /* Alinea el contenido en la parte inferior */
     position: relative;
 }
+
 /* Capa oscura sobre la imagen para que el texto sea legible */
 .slide::before {
     content: '';
@@ -54,7 +55,7 @@ body {
 /* Contenido de texto dentro de un slide */
 .slide-content {
     text-align: center;
-    padding: 20px;
+    padding: 20px 40px;
     z-index: 2; /* Para que esté por encima de la capa oscura */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
 }
@@ -73,7 +74,7 @@ body {
 /* Estilo para los botones de navegación */
 .nav-btn {
     position: absolute;
-    top: 50%; /* Centrado verticalmente */
+    top: 50%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
@@ -83,7 +84,7 @@ body {
     cursor: pointer;
     z-index: 10;
     height: 100px;
-    transition: background-color 0.3s ease;
+    transition: opacity 0.3s ease, background-color 0.3s ease; /* Transición suave */
 }
 
 .nav-btn:hover {
@@ -100,4 +101,10 @@ body {
     right: 0;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+
+/* Clase para ocultar los botones */
+.is-hidden {
+    opacity: 0;
+    pointer-events: none; /* Impide hacer clic en el botón invisible */
 }
