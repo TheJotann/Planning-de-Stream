@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    const indicators = document.querySelectorAll('.indicator');
+    const indicators = [];
 
     // CONFIGURACIÓN
     const currentStatusText = "Jugando Actualmente";
@@ -33,11 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
         nextBtn.classList.toggle('is-hidden', currentIndex === totalSlides - 1);
     }
 
-    // Actualiza los indicadores
+    // Actualiza los indicadores (función vacía ya que no hay indicadores)
     function updateIndicators() {
-        indicators.forEach((indicator, index) => {
-            indicator.classList.toggle('active', index === currentIndex);
-        });
+        // Sin indicadores
     }
 
     // Establece el estado activo del slide
@@ -121,12 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
 
-    // Event listeners para los indicadores
-    indicators.forEach((indicator, index) => {
-        indicator.addEventListener('click', () => {
-            goToSlide(index);
-        });
-    });
+
 
     // === LÓGICA DE SWIPE MEJORADA ===
     

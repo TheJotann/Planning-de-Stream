@@ -120,31 +120,7 @@ html, body {
     pointer-events: none;
 }
 
-/* Indicadores de slide */
-.slide-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-    z-index: 10;
-}
 
-.indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.4);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-}
-
-.indicator.active {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: scale(1.2);
-}
 
 /* Animación de entrada para el contenido */
 @keyframes slideIn {
@@ -244,12 +220,5 @@ html, body {
         font-size: clamp(0.8rem, 2.5vw, 1rem);
     }
     
-    .slide-indicators {
-        bottom: 10px;
-    }
-    
-    .indicator {
-        width: 10px;
-        height: 10px;
-    }
+
 }
