@@ -543,7 +543,7 @@ html, body {
     }
 
     .slide-content {
-        padding: 20px 30px 210px 30px; /* Reducir padding bottom para subir el contenido */
+        padding: 20px 30px 170px 30px; /* Reducir padding bottom para subir el contenido */
         
     }
 }
