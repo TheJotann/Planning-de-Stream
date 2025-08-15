@@ -24,27 +24,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function setActiveStatus(index) {
-    slides.forEach(slide => {
-      const p = slide.querySelector('.slide-content p');
-      if (p && p.dataset.status === 'dynamic') {
-        p.textContent = '';
-        delete p.dataset.status;
-      }
-    });
-
-    const activeSlide = slides[index];
-    if (activeSlide) {
-      const pElement = activeSlide.querySelector('.slide-content p');
-      if (pElement) {
-        if (pElement.textContent.trim() !== '') {
-          pElement.textContent = `${currentStatusText} | ${pElement.textContent}`;
-        } else {
-          pElement.textContent = currentStatusText;
-        }
-        pElement.dataset.status = 'dynamic';
-      }
+  // Limpiar etiquetas anteriores de TODOS los slides
+  slides.forEach(slide => {
+    const existingBadge = slide.querySelector('.current-badge');
+    if (existingBadge) {
+      existingBadge.remove();
     }
+    
+    const p = slide.querySelector('.slide-content p');
+    if (p && p.dataset.status === 'dynamic') {
+      p.textContent = '';
+      delete p.dataset.status;
+    }
+  });
+
+  // Agregar etiqueta "ACTUALMENTE" al slide activo
+  const activeSlide = slides[index];
+  if (activeSlide) {
+    // Crear la etiqueta
+    const currentBadge = document.createElement('div');
+    currentBadge.className = 'current-badge inline'; // Usar clase inline
+    currentBadge.textContent = 'ACTUALMENTE';
+    
+    // Insertar después del h1 en slide-content
+    const slideContent = activeSlide.querySelector('.slide-content');
+    const h1 = slideContent.querySelector('h1');
+    h1.insertAdjacentElement('afterend', currentBadge);
+    
+    // NO añadir texto "Actualmente" al párrafo
+    // Solo la etiqueta visual
   }
+}
 
   function showSlide(index, animate = true) {
     slider.style.transition = animate ? 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none';
