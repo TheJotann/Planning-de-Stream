@@ -317,6 +317,24 @@ html, body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Etiqueta de completado */
+.process-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(189, 16, 34, 0.9); /* Verde semi-transparente */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
 /* Etiqueta de próximamente/actual */
 .current-badge {
     background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706); /* Gradiente dorado */
@@ -523,6 +541,13 @@ html, body {
 
     /* Ajustar posición de etiquetas en móvil para que estén sobre la imagen */
     .completed-badge,
+    .current-badge.corner {
+        top: 30%; /* Mover un poco más abajo */
+        left: 20px;
+    }
+
+    /* Ajustar posición de etiquetas en móvil para que estén sobre la imagen */
+    .process-badge,
     .current-badge.corner {
         top: 30%; /* Mover un poco más abajo */
         left: 20px;
